@@ -1,0 +1,95 @@
+.navbar {
+  width: 100%;
+  background: linear-gradient(90deg, #5e0000 0%, #c00000 50%, #ff2b4f 100%) !important;
+  color: white;
+  padding: 0.7rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+
+  border-bottom-left-radius: 18px;
+  border-bottom-right-radius: 18px;
+
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.25);
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.navbar-logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  object-fit: cover;
+  border: 2px solid #ffffff55;
+}
+
+.navbar-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: white;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2.2rem;
+}
+
+.nav-links a {
+  color: white;
+  font-weight: 500;
+  text-decoration: none;
+  position: relative;
+  transition: 0.25s ease-in-out;
+}
+
+/* Smooth underline hover */
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 3px;
+  bottom: -4px;
+  left: 0;
+  background: white;
+  border-radius: 10px;
+  transition: 0.25s;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* Slight glow on hover */
+.nav-links a:hover {
+  color: #fff;
+  filter: brightness(1.1);
+}
+/* Fix auth navbar alignment */
+.auth-navbar {
+  display: flex;
+  justify-content: space-between !important;
+  padding: 0.9rem 2.8rem !important;
+  height: 70px;
+}
+
+/* Auth nav links alignment fix */
+.auth-links {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+.auth-links li a {
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
