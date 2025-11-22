@@ -14,7 +14,7 @@ export default function MainNavbar() {
   <div className="nav-links">
     <Link to="/">Home</Link>
     <Link to="/journal">Journal</Link>
-    <Link to="/popular">Popular</Link>
+    <Link to="/voting">Voting</Link>
     <Link to="/clubs">Clubs</Link>
     <Link to="/contact">Contact</Link>
     <Link to="/auth">Login</Link>
