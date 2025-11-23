@@ -262,10 +262,10 @@ export default function Ieee() {
         <div className="footer-social">
           <h3>Connect with Chitkara University</h3>
           <div className="social-icons">
-            <a className="linkedin" href="#"><i className="fab fa-linkedin"></i></a>
-            <a className="instagram" href="#"><i className="fab fa-instagram"></i></a>
-            <a className="youtube" href="#"><i className="fab fa-youtube"></i></a>
-          </div>
+            <a href="https://www.linkedin.com/school/chitkara-university/" target="_blank"><i className="fab fa-linkedin-in"></i></a>
+              <a href="https://www.instagram.com/chitkarau" target="_blank"><i className="fab fa-instagram"></i></a>
+              <a href="https://youtube.com/@chitkarauniversity" target="_blank"><i className="fab fa-youtube"></i></a>
+            </div>
         </div>
       </footer>
     </>

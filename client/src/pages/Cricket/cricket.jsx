@@ -257,15 +257,9 @@ export default function Cricket() {
           <div className="footer-social">
             <h3>Connect with Chitkara University</h3>
             <div className="social-icons">
-              <a href="#" aria-label="LinkedIn">
-                <i className="fab fa-linkedin-in" />
-              </a>
-              <a href="#" aria-label="Instagram">
-                <i className="fab fa-instagram" />
-              </a>
-              <a href="#" aria-label="YouTube">
-                <i className="fab fa-youtube" />
-              </a>
+              <a href="https://www.linkedin.com/school/chitkara-university/" target="_blank"><i className="fab fa-linkedin-in"></i></a>
+              <a href="https://www.instagram.com/chitkarau" target="_blank"><i className="fab fa-instagram"></i></a>
+              <a href="https://youtube.com/@chitkarauniversity" target="_blank"><i className="fab fa-youtube"></i></a>
             </div>
           </div>
         </div>
