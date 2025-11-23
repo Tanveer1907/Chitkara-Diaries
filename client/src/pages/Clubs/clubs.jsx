@@ -3,6 +3,14 @@ import React from "react";
 import "./clubs.css";
 import MainNavbar from "../../components/navbar/main_navbar";
 
+// import images from src/assets
+import oscImg from "../../assets/OSC.png";
+import ieeeImg from "../../assets/IEEE.png";
+import basketballImg from "../../assets/Basketball.png";
+import cricketImg from "../../assets/Cricket.png";
+import natrajImg from "../../assets/Natraj.png";
+import dhwaniImg from "../../assets/Dhwani.png";
+
 export default function Clubs() {
   return (
     <>
@@ -18,7 +26,7 @@ export default function Clubs() {
         <h2>Technical Clubs</h2>
         <div className="card-container">
           <div className="club-card">
-            <img src="" alt="Open Source Chandigarh" />
+            <img src={oscImg} alt="Open Source Chandigarh" />
             <div className="card-content">
               <h3>Open-Source Chandigarh</h3>
               <p>Learn, foster, explore — Open-Source is fun.</p>
@@ -27,7 +35,7 @@ export default function Clubs() {
           </div>
 
           <div className="club-card">
-            <img src="/images/IEEE.png" alt="IEEE CUIET" />
+            <img src={ieeeImg} alt="IEEE CUIET" />
             <div className="card-content">
               <h3>IEEE CUIET</h3>
               <p>Learn, build and showcase new ideas.</p>
@@ -42,7 +50,7 @@ export default function Clubs() {
         <h2>Sports Clubs</h2>
         <div className="card-container">
           <div className="club-card">
-            <img src="/images/Basketball.png" alt="Basketball Club" />
+            <img src={basketballImg} alt="Basketball Club" />
             <div className="card-content">
               <h3>Basketball Club CUIET</h3>
               <p>The Chitkara Basketball Team.</p>
@@ -51,7 +59,7 @@ export default function Clubs() {
           </div>
 
           <div className="club-card">
-            <img src="/images/Cricket.png" alt="Cricket Club" />
+            <img src={cricketImg} alt="Cricket Club" />
             <div className="card-content">
               <h3>Cricket Mania CUIET</h3>
               <p>Build fitness, teamwork and spirit.</p>
@@ -66,7 +74,7 @@ export default function Clubs() {
         <h2>Talent Clubs</h2>
         <div className="card-container">
           <div className="club-card">
-            <img src="/images/Natraj.png" alt="Natraj" />
+            <img src={natrajImg} alt="Natraj" />
             <div className="card-content">
               <h3>C2S2 Natraj</h3>
               <p>Dive into the world of Classical Dance.</p>
@@ -75,7 +83,7 @@ export default function Clubs() {
           </div>
 
           <div className="club-card">
-            <img src="/images/Dhwani.png" alt="Dhwani" />
+            <img src={dhwaniImg} alt="Dhwani" />
             <div className="card-content">
               <h3>C2S2 Dhwani</h3>
               <p>Chitkara's musical world.</p>
