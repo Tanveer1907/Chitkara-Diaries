@@ -5,6 +5,7 @@ import HomePage from "./pages/Home/homepage";
 import Auth from "./pages/Auth/Auth";
 import VotingPg from "./pages/Voting/Voting_pg"; // <-- add this import
 import Osc from "./pages/Osc/osc";
+import Ieee from "./pages/Ieee/ieee";
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
         <Route path="/voting" element={<VotingPg />} />   {/* <-- add this route */}
         <Route path="/*" element={<HomePage />} />
         <Route path="/osc" element={<Osc />} />
+        <Route path="/ieee" element={<Ieee />} />
         
       </Routes>
     </BrowserRouter>
