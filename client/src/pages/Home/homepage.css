@@ -593,13 +593,10 @@ body {
 
 /* Footer */
 .footer {
-    background: #FFFFFF; /* Changed to white background */
-    color: #621414; /* Your desired dark red font color */
-    text-align: center;
-    padding: 1rem;
+    background: #621414;  /* Dark maroon */
+    color: #ffffff;       /* White text */
+    padding: 3rem 2rem;
     margin-top: 2rem;
-    font-size: 0.9rem;
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1); /* Added subtle shadow */
 }
 
 .footer-content {
@@ -610,58 +607,50 @@ body {
 }
 
 .footer-section h4 {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     margin-bottom: 1rem;
-    color: var(--primary); /* This will use your #621414 color */
+    color: #fff;  /* White heading */
 }
 
-.footer-section ul {
-    list-style: none;
-}
-
-.footer-section ul li {
-    margin-bottom: 0.5rem;
-}
-
+.footer-section p,
+.footer-section li,
 .footer-section a {
-    color: #621414; /* Changed to your desired color */
-    text-decoration: none;
-    transition: var(--transition);
+    color: #f1f1f1;
+    font-size: 0.95rem;
 }
 
 .footer-section a:hover {
-    color: var(--primary-dark); /* Darker shade on hover */
+    color: #ffe0e0;
 }
 
 .social-links {
     display: flex;
     gap: 1rem;
-    justify-content: center; /* Center the social icons */
 }
 
 .social-links a {
-    display: inline-flex;
+    width: 45px;
+    height: 45px;
+    background: #ffffff;
+    color: #621414;
+    display: flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
-    background: var(--primary); /* Your #621414 color for social icons */
     border-radius: 50%;
-    transition: var(--transition);
-    color: white; /* White icons on colored background */
+    transition: 0.3s;
 }
 
 .social-links a:hover {
-    background: var(--primary-dark);
-    transform: translateY(-2px);
+    background: #ffe5e5;
 }
 
 .footer-bottom {
-    border-top: 1px solid #E5E5E5; /* Light border instead of dark */
+    border-top: 1px solid #9b3b3b; 
     padding-top: 1rem;
     text-align: center;
-    color: #621414; /* Your desired color */
+    color: #fff;
 }
+
 
 /* Responsive Design */
 @media (max-width: 768px) {
