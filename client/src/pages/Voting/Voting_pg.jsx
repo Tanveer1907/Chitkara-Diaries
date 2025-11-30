@@ -179,7 +179,7 @@ export default function VotingPg() {
     "First Coffee": "/src/assets/firstcoffee.jpeg",
     "Alpha Zone": "/src/assets/alpha_zone.jpeg",
     "Square 2": "/src/assets/square2.jpeg",
-     "Maggi": "/src/assets/maggi.jpeg",
+    "Maggi": "/src/assets/maggi.jpeg",
     "Hostel": "/src/assets/hostel.jpeg",
     "Hostel Room": "/src/assets/hostel_room.png",
     "Rangrezz": "/src/assets/rangrezz.png",
@@ -305,7 +305,7 @@ export default function VotingPg() {
   const persistCounts = (next) => {
     try {
       localStorage.setItem("votingCounts_v1", JSON.stringify(next));
-    } catch {}
+    } catch { }
   };
 
   const updateCount = (optionName, delta = 1) => {
@@ -318,7 +318,7 @@ export default function VotingPg() {
   };
 
   useEffect(() => {
-    fetch("/reviews")
+    fetch("http://localhost:5000/api/voting/reviews")
       .then((res) => (res.ok ? res.json() : []))
       .then((data) => {
         const arr = Array.isArray(data) ? data : [];
@@ -362,11 +362,18 @@ export default function VotingPg() {
 
     updateCount(newReview.optionName, 1);
 
-    fetch("/add-review", {
+    fetch("http://localhost:5000/api/voting/add-review", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newReview),
-    }).catch(() => {});
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log("Review saved:", data);
+      })
+      .catch((err) => {
+        console.error("Error saving review:", err);
+      });
 
     form.reset();
     setIsModalOpen(false);
@@ -633,7 +640,7 @@ export default function VotingPg() {
                     </div>
 
 
-                    
+
                   </div>
                 </div>
 

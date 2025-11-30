@@ -8,19 +8,35 @@ import j3 from "../../assets/j3.jpg";
 import j4 from "../../assets/j4.mp4";
 
 export default function Journal() {
-  const spreads = [
-    { left: j1, right: j2 },
-    { left: j3, right: j4 },
-  ];
+  // Each journal entry is a single page
+  const journals = [j1, j2, j3, j4];
 
-  const [idx, setIdx] = useState(0);
+  const [currentPage, setCurrentPage] = useState(0);
+  const [isFlipping, setIsFlipping] = useState(false);
+  const [flipDirection, setFlipDirection] = useState(null); // 'next' or 'prev'
 
-  function prev() {
-    if (idx > 0) setIdx(idx - 1);
+  function flipNext() {
+    if (currentPage < journals.length - 1 && !isFlipping) {
+      setIsFlipping(true);
+      setFlipDirection('next');
+      setTimeout(() => {
+        setCurrentPage(currentPage + 1);
+        setIsFlipping(false);
+        setFlipDirection(null);
+      }, 1000); // Smoother timing
+    }
   }
 
-  function next() {
-    if (idx < spreads.length - 1) setIdx(idx + 1);
+  function flipPrev() {
+    if (currentPage > 0 && !isFlipping) {
+      setIsFlipping(true);
+      setFlipDirection('prev');
+      setTimeout(() => {
+        setCurrentPage(currentPage - 1);
+        setIsFlipping(false);
+        setFlipDirection(null);
+      }, 1000); // Smoother timing
+    }
   }
 
   function Media({ src, alt }) {
@@ -51,38 +67,91 @@ export default function Journal() {
     <div className="journal-root">
       <MainNavbar />
 
-      {/* MOVED HERE → Below Header */}
       <header className="journal-header">
         Our Journals — From The Books of Our Students
       </header>
 
-      {/* FIXED CONTROLS POSITION */}
       <div className="journal-controls">
-        <button className="journal-btn" onClick={prev} disabled={idx === 0}>
-          ◀ Prev
+        <button
+          className="journal-btn"
+          onClick={flipPrev}
+          disabled={currentPage === 0 || isFlipping}
+        >
+          ◀ Previous
         </button>
 
         <span className="page-counter">
-          Spread {idx + 1} / {spreads.length}
+          Page {currentPage + 1} / {journals.length}
         </span>
 
         <button
           className="journal-btn"
-          onClick={next}
-          disabled={idx === spreads.length - 1}
+          onClick={flipNext}
+          disabled={currentPage === journals.length - 1 || isFlipping}
         >
           Next ▶
         </button>
       </div>
 
-      <div className="journal-bg">
-        <div className="journal-book">
-          <div className="page left">
-            <Media src={spreads[idx].left} alt="Left page" />
+      <div className="journal-container">
+        <div className="book-wrapper">
+          {/* Book spine */}
+          <div className="book-spine"></div>
+
+          {/* Left page (static background) */}
+          <div className="book-page book-page-left">
+            <div className="page-content">
+              {currentPage === 0 ? (
+                <div className="journal-title-page">
+                  <div className="decorative-corner top-left"></div>
+                  <div className="decorative-corner top-right"></div>
+                  <div className="decorative-corner bottom-left"></div>
+                  <div className="decorative-corner bottom-right"></div>
+
+                  <div className="title-content">
+                    <div className="journal-main-title">
+                      Our Journal
+                    </div>
+                    <div className="title-underline"></div>
+                    <div className="journal-caption">
+                      Capturing memories, one page at a time ✨
+                    </div>
+                    <div className="journal-subtitle">
+                      Stories from the hearts of Chitkara students
+                    </div>
+                  </div>
+
+                  <div className="decorative-flourish">
+                    <svg viewBox="0 0 100 20" width="100" height="20">
+                      <path d="M0,10 Q25,0 50,10 T100,10" stroke="#621414" strokeWidth="0.5" fill="none" opacity="0.3" />
+                    </svg>
+                  </div>
+                </div>
+              ) : (
+                <Media src={journals[currentPage - 1]} alt="Previous page" />
+              )}
+            </div>
           </div>
 
-          <div className="page right">
-            <Media src={spreads[idx].right} alt="Right page" />
+          {/* Flipping page */}
+          <div className={`book-page book-page-flip ${isFlipping ? `flipping-${flipDirection}` : ''}`}>
+            <div className="page-front">
+              <Media src={journals[currentPage]} alt="Current page front" />
+            </div>
+            <div className="page-back">
+              {currentPage < journals.length - 1 && (
+                <Media src={journals[currentPage + 1]} alt="Current page back" />
+              )}
+            </div>
+          </div>
+
+          {/* Right page (static) */}
+          <div className="book-page book-page-right">
+            <div className="page-content">
+              {currentPage < journals.length - 1 && (
+                <Media src={journals[currentPage + 1]} alt="Next page" />
+              )}
+            </div>
           </div>
         </div>
       </div>
